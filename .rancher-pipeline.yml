@@ -1,0 +1,22 @@
+stages:
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: |-
+        npm install
+        npm audit
+        npm run lint
+        npm run test
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: awcloud/devopsdemo
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deploy/deployment-dev.yaml
+timeout: 60
+notification: {}
