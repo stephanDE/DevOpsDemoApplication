@@ -46,7 +46,7 @@ metadata:
   namespace: stag
 spec:
   rules:
-    - host: stag.116.203.237.159.xip.io
+    - host: testing.116.203.237.159.xip.io
       http:
         paths:
           - backend:
@@ -55,4 +55,4 @@ spec:
             path: /api/university
   tls:
     - hosts:
-        - stag.116.203.237.159.xip.io
+        - testing.116.203.237.159.xip.io
