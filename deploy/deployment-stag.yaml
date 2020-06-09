@@ -46,12 +46,13 @@ metadata:
   namespace: stag
 spec:
   rules:
-    - host: 116.203.237.159.xip.io
+    - host: dev.116.203.237.159.xip.io
       http:
         paths:
           - backend:
               serviceName: devopsdemo-service
               servicePort: 3000
+            path: /api/university
   tls:
     - hosts:
-        - 116.203.237.159.xip.io
+        - dev.116.203.237.159.xip.io

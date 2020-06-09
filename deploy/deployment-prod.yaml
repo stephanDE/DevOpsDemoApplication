@@ -52,6 +52,7 @@ spec:
           - backend:
               serviceName: devopsdemo-service
               servicePort: 3000
+            path: /api/university
   tls:
     - hosts:
         - 116.203.237.159.xip.io
