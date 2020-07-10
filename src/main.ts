@@ -1,16 +1,39 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from './config/config.service';
 
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { LoggingService } from './logging/logging.service';
+
 async function bootstrap() {
-  const configService: ConfigService = new ConfigService();
+  const app = await NestFactory.create(AppModule, { logger: false });
+
+  const configService: ConfigService = app.get(ConfigService);
+  const logger: LoggingService = app.get(LoggingService);
+
   const config = configService.getConfig();
 
-  const app = await NestFactory.create(AppModule);
   app.enableCors();
-  app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix(config.prefix);
+  app.useLogger(logger);
+
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        clientId: config.kafka.clientId,
+        brokers: config.kafka.brokerUris,
+      },
+      consumer: {
+        groupId: `${config.kafka.prefix}-${config.kafka.clientId}-consumer`,
+      },
+    },
+  });
+
+  await app.startAllMicroservicesAsync();
   await app.listen(config.port);
+
+  logger.log(`University service running on port ${config.port}`);
+  logger.warn('servus du da');
 }
 bootstrap();

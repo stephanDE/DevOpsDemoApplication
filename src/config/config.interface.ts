@@ -2,7 +2,16 @@ export interface Config {
   port: number;
   prefix?: string;
   mongo?: MongoConfig;
+  auth?: AuthConfig;
   kafka?: KafkaConfig;
+}
+
+export interface AuthConfig {
+  algorithms?: string[];
+  issuer?: string;
+  publicKey?: string;
+  realm?: string;
+  resource?: string;
 }
 
 export interface MongoConfig {
@@ -12,5 +21,6 @@ export interface MongoConfig {
 
 export interface KafkaConfig {
   clientId?: string;
+  prefix?: string;
   brokerUris?: string[];
 }

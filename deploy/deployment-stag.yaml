@@ -30,10 +30,16 @@ spec:
     spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
-      nodeName: solda
       containers:
         - name: devopsdemo-service
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          env:
+            - name: KAFKA_PREFIX
+              value: stag
+            - name: KAFKA_HOST
+              value: kafka.kafka
+            - name: KAFKA_PORT
+              value: "9094"
           envFrom:
             - secretRef:
                 name: devopsdemo-stag
