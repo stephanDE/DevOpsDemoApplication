@@ -39,7 +39,7 @@ spec:
             - name: KAFKA_HOST
               value: kafka.kafka
             - name: KAFKA_PORT
-              value: "9094"
+              value: "9093"
           envFrom:
             - secretRef:
                 name: devopsdemo-prod
