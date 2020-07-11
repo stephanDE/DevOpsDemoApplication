@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Transport } from '@nestjs/microservices';
 
 import { ConfigService } from '../config/config.service';
