@@ -17,7 +17,7 @@ export const Cmd = createParamDecorator(
 
     let command: Command;
 
-    switch (value.type) {
+    switch (value.action) {
       case 'CreateUniversity':
         command = plainToClass(CreateUniversityCommand, value);
         break;

@@ -1,9 +1,10 @@
-import { RpcExceptionFilter, ArgumentsHost } from '@nestjs/common';
+import { RpcExceptionFilter, ArgumentsHost, Catch } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 import { Observable, throwError } from 'rxjs';
 
 import { LoggingService } from '../logging/logging.service';
 
+@Catch(RpcException)
 export class ExceptionFilter implements RpcExceptionFilter<RpcException> {
   constructor(private logger: LoggingService) {}
   catch(exception: RpcException, host: ArgumentsHost): Observable<any> {
