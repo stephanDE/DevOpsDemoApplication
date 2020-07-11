@@ -1,12 +1,8 @@
-import {
-  createParamDecorator,
-  ExecutionContext,
-  BadRequestException,
-} from '@nestjs/common';
-
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { RpcException } from '@nestjs/microservices';
+
 import { Command } from '../university/commands/command';
 import { CreateUniversityCommand } from '../university/commands/createUniversity.command';
 

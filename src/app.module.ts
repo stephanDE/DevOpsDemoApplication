@@ -1,9 +1,10 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
+import { MongooseModule } from '@nestjs/mongoose';
+
 import { UniversityModule } from './university/university.module';
 import { ConfigModule } from './config/config.module';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from './config/config.service';
-import { JwtModule } from '@nestjs/jwt';
 import { AuthMiddleware } from './auth/auth.middleware';
 import { KafkaModule } from './kafka/kafka.module';
 

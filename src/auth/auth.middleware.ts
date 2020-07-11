@@ -4,10 +4,11 @@ import {
   Inject,
   UnauthorizedException,
 } from '@nestjs/common';
-import { ExtendedRequest } from './auth.interface';
 import { Response, NextFunction } from 'express';
-import { Config } from '../config/config.interface';
 import { JwtService } from '@nestjs/jwt';
+
+import { Config } from '../config/config.interface';
+import { ExtendedRequest } from './auth.interface';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {

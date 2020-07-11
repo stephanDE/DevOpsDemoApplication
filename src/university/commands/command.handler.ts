@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { RpcException } from '@nestjs/microservices';
+
 import { UniversityService } from '../university.service';
 import { University } from '../university.schema';
 import { Command } from './command';
 import { CreateUniversityCommand } from './createUniversity.command';
-import { RpcException } from '@nestjs/microservices';
 
 @Injectable()
 export class CommandHandler {

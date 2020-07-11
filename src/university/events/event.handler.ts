@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { RpcException } from '@nestjs/microservices';
+import { StudentEnrolledEvent } from './studentEnrolled.event';
+
 import { UniversityService } from '../university.service';
 import { University } from '../university.schema';
-import { plainToClass } from 'class-transformer';
-import { RpcException } from '@nestjs/microservices';
 import { Event } from '../events/event';
-import { StudentEnrolledEvent } from './studentEnrolled.event';
+
 @Injectable()
 export class EventHandler {
   constructor(private universityService: UniversityService) {}

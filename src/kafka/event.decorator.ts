@@ -1,9 +1,10 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { Event } from '../university/events/event';
 import { RpcException } from '@nestjs/microservices';
 import { plainToClass } from 'class-transformer';
-import { StudentEnrolledEvent } from '../university/events/studentEnrolled.event';
 import { validate } from 'class-validator';
+
+import { StudentEnrolledEvent } from '../university/events/studentEnrolled.event';
+import { Event } from '../university/events/event';
 
 export const Evt = createParamDecorator(
   async (data: unknown, ctx: ExecutionContext): Promise<Event> => {

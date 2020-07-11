@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+
 import { AppModule } from './app.module';
 import { ConfigService } from './config/config.service';
-
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { LoggingService } from './logging/logging.service';
 
 async function bootstrap() {

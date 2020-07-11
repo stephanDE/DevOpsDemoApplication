@@ -4,6 +4,7 @@ import {
   ClientProxyFactory,
   Transport,
 } from '@nestjs/microservices';
+
 import { ConfigService } from '../config/config.service';
 
 @Global()

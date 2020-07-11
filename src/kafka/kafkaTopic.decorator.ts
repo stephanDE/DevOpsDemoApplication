@@ -1,5 +1,6 @@
-import { ConfigService } from '../config/config.service';
 import { Transport } from '@nestjs/microservices';
+
+import { ConfigService } from '../config/config.service';
 
 const PATTERN_METADATA = 'microservices:pattern';
 const TRANSPORT_METADATA = 'microservices:transport';

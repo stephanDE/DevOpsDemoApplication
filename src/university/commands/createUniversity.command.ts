@@ -1,6 +1,7 @@
-import { Command } from './command';
 import { IsNotEmpty, ValidateNested, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
+
+import { Command } from './command';
 
 class University {
   @IsNotEmpty()

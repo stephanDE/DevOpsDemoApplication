@@ -10,12 +10,11 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { University } from './university.schema';
-import { UniversityService } from './university.service';
-import { MongoPipe } from '../pipe/mongoid.pipe';
-import { ClientKafka } from '@nestjs/microservices';
-import { KafkaTopic } from '../kafka/kafkaTopic.decorator';
 import { v4 as uuid } from 'uuid';
+import { ClientKafka } from '@nestjs/microservices';
+
+import { MongoPipe } from '../pipe/mongoid.pipe';
+import { KafkaTopic } from '../kafka/kafkaTopic.decorator';
 import { Cmd } from '../kafka/command.decorator';
 import { Roles } from '../auth/auth.decorator';
 import { RoleGuard } from '../auth/auth.guard';
@@ -27,6 +26,8 @@ import { Config } from '../config/config.interface';
 import { CommandHandler } from './commands/command.handler';
 import { EventHandler } from './events/event.handler';
 import { Evt } from '../kafka/event.decorator';
+import { University } from './university.schema';
+import { UniversityService } from './university.service';
 
 @Controller('university')
 @UseGuards(RoleGuard)

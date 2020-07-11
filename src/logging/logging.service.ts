@@ -1,5 +1,6 @@
 import { Logger, Inject } from '@nestjs/common';
 import { ClientKafka } from '@nestjs/microservices';
+
 import { Config } from '../config/config.interface';
 
 export class LoggingService extends Logger {

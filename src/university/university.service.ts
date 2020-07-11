@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { University } from './university.schema';
 import { Model } from 'mongoose';
+
+import { University } from './university.schema';
 import { CreateUniversityDto } from './dto/CreateUniversity.dto';
 import { StudentEnrolledEvent } from './events/studentEnrolled.event';
 
