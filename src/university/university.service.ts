@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { University } from './university.schema';
-import { CreateUniversityDto } from './dto/CreateUniversity.dto';
+import { CreateUniversityDto } from './dto/createUniversity.dto';
 import { StudentEnrolledEvent } from './events/studentEnrolled.event';
 
 @Injectable()

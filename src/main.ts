@@ -10,7 +10,6 @@ async function bootstrap() {
 
   const configService: ConfigService = app.get(ConfigService);
   const logger: LoggingService = app.get(LoggingService);
-
   const config = configService.getConfig();
 
   app.enableCors();

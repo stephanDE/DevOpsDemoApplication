@@ -17,7 +17,7 @@ export class CommandHandler {
           command as CreateUniversityCommand,
         );
       default:
-        throw new RpcException(`Unsupported command action ${command.action}`);
+        throw new RpcException(`Unsupported command action: ${command.action}`);
     }
   }
 

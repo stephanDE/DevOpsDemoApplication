@@ -20,7 +20,7 @@ import { Roles } from '../auth/auth.decorator';
 import { RoleGuard } from '../auth/auth.guard';
 import { ExceptionFilter } from '../kafka/kafka.exception.filter';
 import { Command } from './commands/command';
-import { CreateUniversityDto } from './dto/CreateUniversity.dto';
+import { CreateUniversityDto } from './dto/createUniversity.dto';
 import { Event } from './events/event';
 import { Config } from '../config/config.interface';
 import { CommandHandler } from './commands/command.handler';
