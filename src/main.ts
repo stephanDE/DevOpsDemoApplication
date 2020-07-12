@@ -29,8 +29,12 @@ async function bootstrap() {
     },
   });
 
-  await app.startAllMicroservicesAsync();
-  await app.listen(config.port);
+  try {
+    await app.startAllMicroservicesAsync();
+    await app.listen(config.port);
+  } catch (error) {
+    console.log(error);
+  }
 
   logger.log(`University service running on port ${config.port}`);
   logger.warn('servus du da');
