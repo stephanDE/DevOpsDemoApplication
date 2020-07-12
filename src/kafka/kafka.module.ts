@@ -16,21 +16,26 @@ export class KafkaModule {
       useFactory: async (
         configService: ConfigService,
       ): Promise<ClientProxy> => {
-        const kafkaConfig = configService.getConfig().kafka;
-        const clientProxy = ClientProxyFactory.create({
-          transport: Transport.KAFKA,
-          options: {
-            client: {
-              clientId: kafkaConfig.clientId,
-              brokers: kafkaConfig.brokerUris,
+        try {
+          const kafkaConfig = configService.getConfig().kafka;
+          const clientProxy = ClientProxyFactory.create({
+            transport: Transport.KAFKA,
+            options: {
+              client: {
+                clientId: kafkaConfig.clientId,
+                brokers: kafkaConfig.brokerUris,
+              },
+              consumer: {
+                groupId: `${kafkaConfig.prefix}-${kafkaConfig.clientId}-consumer`,
+              },
             },
-            consumer: {
-              groupId: `${kafkaConfig.prefix}-${kafkaConfig.clientId}-consumer`,
-            },
-          },
-        });
-        await clientProxy.connect();
-        return clientProxy;
+          });
+
+          await clientProxy.connect();
+          return clientProxy;
+        } catch (error) {
+          console.log(error);
+        }
       },
       inject: [ConfigService],
     };
