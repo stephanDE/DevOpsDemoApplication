@@ -40,10 +40,6 @@ spec:
               value: kafka.kafka
             - name: KAFKA_PORT
               value: '9094'
-            - name: MONGO_USER
-              value: root
-            - name: MONGO_PASSWORD
-              value: ich1994
 
           envFrom:
             - secretRef:
