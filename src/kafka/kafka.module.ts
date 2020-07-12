@@ -16,7 +16,6 @@ export class KafkaModule {
       useFactory: async (
         configService: ConfigService,
       ): Promise<ClientProxy> => {
-        console.log('juhu');
         const kafkaConfig = configService.getConfig().kafka;
         const clientProxy = ClientProxyFactory.create({
           transport: Transport.KAFKA,
@@ -32,7 +31,6 @@ export class KafkaModule {
         });
         await clientProxy.connect();
 
-        console.log('es geht');
         return clientProxy;
       },
       inject: [ConfigService],
