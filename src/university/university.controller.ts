@@ -81,24 +81,20 @@ export class UniversityController {
   @KafkaTopic(`university-command`) async onCommand(
     @Cmd() command: Command,
   ): Promise<void> {
-    try {
-      const university: University = await this.commandHandler.handler(command);
+    const university: University = await this.commandHandler.handler(command);
 
-      const event = {
-        id: uuid(),
-        type: 'event',
-        action: 'UniversityCreated',
-        timestamp: Date.now(),
-        data: university,
-      };
+    const event = {
+      id: uuid(),
+      type: 'event',
+      action: 'UniversityCreated',
+      timestamp: Date.now(),
+      data: university,
+    };
 
-      this.kafkaClient.emit(
-        `${this.config.kafka.prefix}-university-event`,
-        event,
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    this.kafkaClient.emit(
+      `${this.config.kafka.prefix}-university-event`,
+      event,
+    );
 
     return;
   }
@@ -106,12 +102,7 @@ export class UniversityController {
   @KafkaTopic('student-event') async onStudentEvent(
     @Evt() event: Event,
   ): Promise<void> {
-    try {
-      await this.eventHandler.handleEvent(event);
-    } catch (error) {
-      console.log(error);
-    }
-
+    await this.eventHandler.handleEvent(event);
     return;
   }
 }
