@@ -8,7 +8,6 @@ import { LoggingService } from './logging/logging.service';
 async function bootstrap() {
   console.log('Starte das ding');
   const app = await NestFactory.create(AppModule, { logger: true });
-  console.log('Gehts');
 
   const configService: ConfigService = app.get(ConfigService);
   const logger: LoggingService = app.get(LoggingService);
@@ -31,9 +30,7 @@ async function bootstrap() {
     },
   });
 
-  console.log('Geht noch');
   await app.startAllMicroservicesAsync();
-  console.log('Geht immer noch');
   await app.listen(config.port);
 
   logger.log(`University service running on port ${config.port}`);
