@@ -60,12 +60,12 @@ export class UniversityController {
 
     console.log(`created university with: ${event}`);
 
-    this.kafkaClient.emit(
+    /*this.kafkaClient.emit(
       `${this.config.kafka.prefix}-university-event`,
       event,
     );
 
-    return university;
+    return university;*/
   }
 
   //@Roles('read')
