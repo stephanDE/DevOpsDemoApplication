@@ -21,6 +21,7 @@ export class UniversityService {
   }
 
   async createOne(dto: CreateUniversityDto): Promise<University> {
+    console.log('create a university with ', dto);
     return this.uniModel.create(dto);
   }
 

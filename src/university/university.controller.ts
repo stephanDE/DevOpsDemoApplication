@@ -47,6 +47,7 @@ export class UniversityController {
   @Roles('create')
   @UsePipes(ValidationPipe)
   async createOne(@Body() dto: CreateUniversityDto): Promise<University> {
+    console.log('bis hierhin gehts');
     const university: University = await this.universityService.createOne(dto);
 
     const event = {
@@ -57,7 +58,7 @@ export class UniversityController {
       data: university,
     };
 
-    console.log(`create university with: ${event}`);
+    console.log(`created university with: ${event}`);
 
     this.kafkaClient.emit(
       `${this.config.kafka.prefix}-university-event`,
