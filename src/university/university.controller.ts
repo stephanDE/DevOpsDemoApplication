@@ -44,7 +44,7 @@ export class UniversityController {
   // ---------------- REST --------------------
 
   @Post('')
-  @Roles('create')
+  //@Roles('create')
   @UsePipes(ValidationPipe)
   async createOne(@Body() dto: CreateUniversityDto): Promise<University> {
     console.log('bis hierhin gehts');
@@ -68,7 +68,7 @@ export class UniversityController {
     return university;
   }
 
-  @Roles('read')
+  //@Roles('read')
   @Get()
   async getAll(): Promise<University[]> {
     return this.universityService.findAll();
@@ -84,6 +84,7 @@ export class UniversityController {
   @KafkaTopic(`university-command`) async onCommand(
     @Cmd() command: Command,
   ): Promise<void> {
+    console.log('bis hierhin gehts');
     const university: University = await this.commandHandler.handler(command);
 
     const event = {
@@ -93,6 +94,8 @@ export class UniversityController {
       timestamp: Date.now(),
       data: university,
     };
+
+    console.log(`created university with: ${event}`);
 
     this.kafkaClient.emit(
       `${this.config.kafka.prefix}-university-event`,
