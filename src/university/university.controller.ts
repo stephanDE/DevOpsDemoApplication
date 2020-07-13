@@ -63,9 +63,9 @@ export class UniversityController {
     /*this.kafkaClient.emit(
       `${this.config.kafka.prefix}-university-event`,
       event,
-    );
+    );*/
 
-    return university;*/
+    return university;
   }
 
   //@Roles('read')
