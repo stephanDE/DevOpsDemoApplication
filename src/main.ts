@@ -6,7 +6,6 @@ import { ConfigService } from './config/config.service';
 import { LoggingService } from './logging/logging.service';
 
 async function bootstrap() {
-  console.log('Starte das ding');
   const app = await NestFactory.create(AppModule, { logger: true });
 
   const configService: ConfigService = app.get(ConfigService);

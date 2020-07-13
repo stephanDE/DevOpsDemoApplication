@@ -30,7 +30,7 @@ import { University } from './university.schema';
 import { UniversityService } from './university.service';
 
 @Controller('university')
-@UseGuards(RoleGuard)
+//@UseGuards(RoleGuard)
 @UseFilters(ExceptionFilter)
 export class UniversityController {
   constructor(
@@ -56,6 +56,8 @@ export class UniversityController {
       timestamp: Date.now(),
       data: university,
     };
+
+    console.log(`create university with: ${event}`);
 
     this.kafkaClient.emit(
       `${this.config.kafka.prefix}-university-event`,
