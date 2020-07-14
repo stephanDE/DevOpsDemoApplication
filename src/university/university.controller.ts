@@ -30,7 +30,7 @@ import { University } from './university.schema';
 import { UniversityService } from './university.service';
 
 @Controller('university')
-//@UseGuards(RoleGuard)
+@UseGuards(RoleGuard)
 @UseFilters(ExceptionFilter)
 export class UniversityController {
   constructor(
@@ -44,7 +44,7 @@ export class UniversityController {
   // ---------------- REST --------------------
 
   @Post('')
-  //@Roles('create')
+  @Roles('create')
   @UsePipes(ValidationPipe)
   async createOne(@Body() dto: CreateUniversityDto): Promise<University> {
     const university: University = await this.universityService.createOne(dto);
@@ -65,7 +65,7 @@ export class UniversityController {
     return university;
   }
 
-  //@Roles('read')
+  @Roles('read')
   @Get()
   async getAll(): Promise<University[]> {
     return this.universityService.findAll();
