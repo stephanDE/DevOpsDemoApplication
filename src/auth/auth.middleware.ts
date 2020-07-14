@@ -12,7 +12,7 @@ import { ExtendedRequest } from './auth.interface';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
-  private readonly AUTH_SCHEMA = 'bearer';
+  private readonly AUTH_SCHEMA = 'Bearer';
 
   constructor(
     @Inject('CONFIG') private config: Config,

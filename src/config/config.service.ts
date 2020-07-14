@@ -23,7 +23,7 @@ export class ConfigService {
     auth.resource = process.env.AUTH_RESOURCE || 'university-service';
     auth.publicKey =
       process.env.AUTH_PUBLIC_KEY ||
-      '-----BEGIN PUBLIC KEY----- \n MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjVphni5jrwLiOXhzSSse7cprTmxSwL/J/FepX1MpkROiVVIEbkHg8v+oeuNGGVG6BAP131BQzvPrpBvtLIfvARzzfn83/tMF1k2hUlDP6PCr2mohg02grSaQJ+nl1gtl5p1P84mz6yzM8dAGGWLJ29F6ryx0I1GDQ7w9WquarWbdkUr1pePTz3NDqiUgqh7RtEQpvsrhA6PyeB76QZt/oq/xTTPL7cgKwBiEQckWdRjydXKcN880qbf5+q69Wz5LN5vKMfRv3OloJ3dai7m+Qq2BiZQFq1uRw9XCaLJuxuY2M4o8rL8wnMmDtnOAd07g/lbS713zRhVWY+/UWgbxJwIDAQAB\n -----END PUBLIC KEY-----';
+      '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjVphni5jrwLiOXhzSSse7cprTmxSwL/J/FepX1MpkROiVVIEbkHg8v+oeuNGGVG6BAP131BQzvPrpBvtLIfvARzzfn83/tMF1k2hUlDP6PCr2mohg02grSaQJ+nl1gtl5p1P84mz6yzM8dAGGWLJ29F6ryx0I1GDQ7w9WquarWbdkUr1pePTz3NDqiUgqh7RtEQpvsrhA6PyeB76QZt/oq/xTTPL7cgKwBiEQckWdRjydXKcN880qbf5+q69Wz5LN5vKMfRv3OloJ3dai7m+Qq2BiZQFq1uRw9XCaLJuxuY2M4o8rL8wnMmDtnOAd07g/lbS713zRhVWY+/UWgbxJwIDAQAB\n-----END PUBLIC KEY-----';
 
     const mongo: MongoConfig = {};
     const user = process.env.MONGO_USER || '';

@@ -32,6 +32,6 @@ import { KafkaModule } from './kafka/kafka.module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes('api/(.*)?');
+    consumer.apply(AuthMiddleware).forRoutes('*');
   }
 }

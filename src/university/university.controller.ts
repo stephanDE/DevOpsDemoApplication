@@ -44,7 +44,7 @@ export class UniversityController {
   // ---------------- REST --------------------
 
   @Post('')
-  @Roles('create')
+  @Roles('Create')
   @UsePipes(ValidationPipe)
   async createOne(@Body() dto: CreateUniversityDto): Promise<University> {
     const university: University = await this.universityService.createOne(dto);
@@ -65,8 +65,8 @@ export class UniversityController {
     return university;
   }
 
-  @Roles('read')
-  @Get()
+  @Roles('Read')
+  @Get('')
   async getAll(): Promise<University[]> {
     return this.universityService.findAll();
   }
